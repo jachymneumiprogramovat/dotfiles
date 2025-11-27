@@ -2,7 +2,7 @@ if [[ -f "/tmp/wanted.txt" ]]; then
     CUR=$(< "/tmp/wanted.txt")
 else
     touch "/tmp/wanted.txt"
-    echo 1 > "/tmp/wanted.txt"
+    echo 0 > "/tmp/wanted.txt"
     CUR=$(< "/tmp/wanted.txt")
 fi
 
@@ -14,4 +14,4 @@ fi
 
 
 CUR=$(( CUR + DIFF ))
-echo $CUR > "/tmp/wanted.txt"
+echo $((CUR < 0 ? -CUR : CUR)) > "/tmp/wanted.txt"
