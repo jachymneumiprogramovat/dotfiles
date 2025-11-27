@@ -55,7 +55,7 @@ exec sh -c 'mons -s' &
 exec sh -c 'pgrep -x spotify > /dev/null || exec spotify' &
 
 # Start Alacritty on workspace 2 if not already running
-exec sh -c 'pgrep -x alacritty > /dev/null || (i3-msg workspace 2; exec alacritty)' &
+exec sh -c 'pgrep -x alacritty > /dev/null || (i3-msg workspace 2; exec ~/.config/i3/scripts/i3_term)' &
 
 # Start Firefox on workspace 1 if not already running
 exec sh -c 'pgrep -x firefox > /dev/null || (sleep 1; i3-msg workspace 1; exec firefox)' &
