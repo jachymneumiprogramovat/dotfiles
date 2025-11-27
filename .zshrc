@@ -122,9 +122,10 @@ add-zsh-hook -Uz precmd rehash_precmd
 
 
 alias webap="cd ~/skola/maturita_ivt/webap/ && mamba activate webap"
-alias lingebra="nvim ~/mff/notes/lingebra.tex"
-alias analyza="nvim ~/mff/notes/analyza.tex"
-alias diskretka="nvim ~/mff/notes/diskretka.tex"
+
+alias lingebra="python ~/dotfiles/scripts/snippets.py lingebra "
+alias analyza="python ~/dotfiles/scripts/snippets.py analyza"
+alias diskretka="python ~/dotfiles/scripts/snippets.py diskretka"
 
 
 alias ukoly="nvim ukoly.txt"
