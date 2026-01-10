@@ -1,0 +1,161 @@
+source ~/.config/neomutt/colors.neomuttrc
+# System configuration file for NeoMutt
+#
+
+# Default list of header fields to weed when displaying.
+# Ignore all lines by default...
+ignore *
+
+# ... then allow these through.
+unignore from: subject to cc date x-mailer x-url user-agent
+
+# Display the fields in this order
+hdr_order date from to cc subject
+
+# imitate the old search-body function
+macro index \eb "<search>~b " "search in message bodies"
+
+# simulate the old url menu
+macro index,pager,attach,compose \cb "\
+<enter-command> set my_pipe_decode=\$pipe_decode pipe_decode<Enter>\
+<pipe-message> urlview<Enter>\
+<enter-command> set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<Enter>" \
+"call urlview to extract URLs out of a message"
+
+# Show documentation when pressing F1
+macro generic,pager <F1> "<shell-escape> less /usr/share/doc/neomutt/manual.txt<Enter>" "show NeoMutt documentation"
+# and also F2, as some terminals use F1
+macro generic,pager <F2> "<shell-escape> less /usr/share/doc/neomutt/manual.txt<Enter>" "show NeoMutt documentation"
+
+# show the incoming mailboxes list (just like "neomutt -y") and back when pressing "y"
+macro index y "<change-folder>?" "show incoming mailboxes list"
+macro pager y "<exit><change-folder>?" "show incoming mailboxes list"
+bind browser y exit
+
+# Handler for gzip compressed mailboxes
+# open-hook   '\.gz$' "gzip --stdout --decompress '%f' >  '%t'"
+# close-hook  '\.gz$' "gzip --stdout              '%t' >  '%f'"
+# append-hook '\.gz$' "gzip --stdout              '%t' >> '%f'"
+
+bind editor <delete> delete-char
+
+# Identity
+set from = "jachym.lowenhoffer@gmail.com"
+set realname = "Kouleslav"
+
+set imap_list_subscribed = no
+set imap_check_subscribed = no
+set imap_passive = no
+# IMAP
+set imap_user = "jachym.lowenhoffer@gmail.com"
+set imap_pass = "aegx bewp agpy xuvr"
+set imap_keepalive = 300
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+
+set record = "+[Gmail]/Odeslaná pošta"
+set spam = "+[Gmail]/Spam"
+
+# SMTP
+set smtp_url = "smtps://jachym.lowenhoffer@gmail.com@smtp.gmail.com:465/"
+set smtp_pass = "aegx bewp agpy xuvr"
+set smtp_authenticators = "login"
+
+# TLS
+set ssl_force_tls = yes
+
+# Mailboxes
+mailboxes =INBOX
+
+# General
+set charset = "utf-8"
+set editor = "nvim"
+
+
+# Sort by newest conversation first.
+set charset = "utf-8"
+set uncollapse_jump
+set sort_re
+set sort = reverse-threads
+set sort_aux = last-date-received
+set pager_index_lines=10
+
+
+set pager_index_lines = 10          
+set pager_context = 3                # show 3 lines of context
+set pager_stop                       # stop at end of message
+set menu_scroll                      # scroll menu
+set tilde                            # use ~ to pad mutt
+set move=no                          # don't move messages when marking as read
+set mail_check = 30                  # check for new mail every 30 seconds
+set imap_keepalive = 900             # 15 minutes
+set sleep_time = 0                   # don't sleep when idle
+set wait_key = no		     # mutt won't ask "press key to continue"
+set envelope_from                    # which from?
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set forward_quote                    # include message in forwards
+set mime_forward                     # forward attachments as part of body
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set text_flowed=yes                  # correct indentation for plain text
+unset sig_dashes                     # no dashes before sig
+unset markers
+
+set sidebar_visible # comment to disable sidebar by default
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_format = "%B %* [%?N?%N / ?%S]"
+set mail_check_stats
+bind index,pager \CJ sidebar-prev
+bind index,pager \CK sidebar-next
+bind index,pager \CE sidebar-open
+bind index,pager B sidebar-toggle-visible
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+mailboxes \
+  +INBOX \
+  "+[Gmail]/Odeslaná pošta" \
+  "+[Gmail]/Koš" \
+  +ksp \
+  +mam
+
+set editor = "nvim"
+
+macro compose <F5> \
+  "<enter-command>my_hdr Content-Type: text/html; charset=UTF-8<enter>" \
+  "Send message as HTML"
+
+macro compose <F6> \
+  "<enter-command>unmy_hdr Content-Type<enter>" \
+  "Send message as plain text"
+
+
+set mailcap_path = "~/.config/neomutt/mailcap"
+bind attach <return> view-mailcap
+
+set implicit_autoview=yes
+auto_view text/html
+set display_filter=""
+set text_flowed=no
+
+
+set imap_peek=yes
+set imap_fetch_chunk_size=0
+# set imap_headers_only=yes
+set imap_idle=yes
+
+# tags
+# set save_hook=yes
+# save-hook '~f jachym.lowenhoffer@gmail.com' +kolongus
+
+folder-hook . 'set read_inc=1000'

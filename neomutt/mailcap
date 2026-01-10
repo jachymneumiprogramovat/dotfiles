@@ -1,0 +1,3 @@
+application/pdf; zathura %s &
+# text/html; pandoc -f html -t gfm %s; copiousoutput
+text/html; firefox %s; test=test -n "$DISPLAY"; needsterminal;

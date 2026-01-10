@@ -1,0 +1,30 @@
+# Index
+color index brightyellow default "~N"      # new mail
+color index brightgreen default "~T"       # tagged
+color index brightcyan default "~F"        # flagged
+color index red default "~D"               # deleted
+
+# Headers
+color header brightmagenta default "^From:"
+color header brightgreen default "^Subject:"
+color header brightcyan default "^To:"
+color header brightblue default "^Cc:"
+
+# Quoted text
+color quoted green default
+color quoted1 cyan default
+color quoted2 yellow default
+color quoted3 magenta default
+
+# Status bar
+color status black brightgreen
+color indicator black brightcyan
+
+# Search results
+color search black yellow
+
+# Links
+color body brightcyan default "(https?|ftp)://[^\s]+"
+mono body bold "(https?|ftp)://[^\s]+"
+
+color body brightcyan default "www\.[^\s]+"
