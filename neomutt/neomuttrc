@@ -54,7 +54,6 @@ set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 
 set record = "+[Gmail]/Odeslaná pošta"
-set spam = "+[Gmail]/Spam"
 
 # SMTP
 set smtp_url = "smtps://jachym.lowenhoffer@gmail.com@smtp.gmail.com:465/"
@@ -125,11 +124,10 @@ bind attach,index G last-entry
 mailboxes \
   +INBOX \
   "+[Gmail]/Odeslaná pošta" \
-  "+[Gmail]/Koš" \
+  +mff \
   +ksp \
-  +mam
-
-set editor = "nvim"
+  +mam \
+  +mam/grupy \
 
 macro compose <F5> \
   "<enter-command>my_hdr Content-Type: text/html; charset=UTF-8<enter>" \
