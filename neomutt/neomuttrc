@@ -143,6 +143,7 @@ bind attach <return> view-mailcap
 
 set implicit_autoview=yes
 auto_view text/html
+alternative_order text/enriched text/plain text/html text
 set display_filter=""
 set text_flowed=no
 

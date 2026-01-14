@@ -1,5 +1,6 @@
 application/pdf; zathura %s &
 # text/html; pandoc -f html -t gfm %s; copiousoutput
 # text/html; firefox %s; test=test -n "$DISPLAY"; needsterminal;
-text/html; lynx -dump -assume_charset=utf-8 -display_charset=utf-8 %s ; copiousoutput
-text/*; more
+text/html;      ~/.mutt/view_attachment.sh %s html;     test=test -n "$DISPLAY"
+text/html;      w3m %s;     nametemplate=%s.html;       needsterminal
+text/html;      w3m -v -F -T text/html -dump %s;        copiousoutput
