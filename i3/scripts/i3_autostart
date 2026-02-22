@@ -49,8 +49,7 @@ xsetroot -cursor_name left_ptr
 "$idir"/scripts/i3_comp
 
 
-# If it is possible use second monitor
-exec sh -c 'mons -s' &
+exec sh -c 'sudo systemctl restart sddm' &
 
 exec sh -c 'pgrep -x spotify > /dev/null || exec spotify' &
 
@@ -58,9 +57,9 @@ exec sh -c 'pgrep -x spotify > /dev/null || exec spotify' &
 exec sh -c 'pgrep -x alacritty > /dev/null || (i3-msg workspace 2; exec ~/.config/i3/scripts/i3_term)' &
 
 # Start Firefox on workspace 1 if not already running
-exec sh -c 'pgrep -x firefox > /dev/null || (sleep 1; i3-msg workspace 1; exec firefox)' &
+exec sh -c 'pgrep -x firefox > /dev/null || (sleep 1; i3-msg workspace 1; exec zen-browser)' &
 
-exec sh -c ' exec /home/jachym/beeper/*' &
+exec sh -c 'exec /home/jachym/beeper/*' &
 
 
 # Start mpd
