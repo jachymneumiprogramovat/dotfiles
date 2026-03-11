@@ -69,4 +69,4 @@ exec mpd &
 exec setxkbmap -layout us,cz -variant ,qwerty -option caps:escape,grp:alt_shift_toggle,grp:switch &
 
 xautolock -time 10 -locker "systemctl suspend && betterlockscreen -l" &
-xautolock -time 25 -locker "systemctl hybernate && betterlockscreen -l" &
+xautolock -time 25 "poweroff" 
