@@ -132,7 +132,7 @@ alias diskretka="python ~/dotfiles/scripts/snippets.py diskretka"
 
 alias prog="cd ~/mff/programovani/letnak/"
 
-alias ukoly="nvim ukoly.txt"
+alias ukoly="nvim ~/mff/ukoly && cd ~/mff/ukoly/"
 
 alias obsidian="./obsidian/Obsidian-1.8.9.AppImage"
 alias beeper="~/beeper/Beeper\-4\.0\.747\.AppImage"
