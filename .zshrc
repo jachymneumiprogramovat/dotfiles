@@ -130,6 +130,7 @@ alias lingebra="python ~/dotfiles/scripts/snippets.py lingebra "
 alias analyza="python ~/dotfiles/scripts/snippets.py analyza"
 alias diskretka="python ~/dotfiles/scripts/snippets.py diskretka"
 
+alias prog="cd ~/mff/programovani/letnak/"
 
 alias ukoly="nvim ukoly.txt"
 
