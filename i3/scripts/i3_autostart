@@ -29,6 +29,11 @@ fi
 # Enable power management
 xfce4-power-manager &
 
+# Enable wifi card
+exec "echo "1" | sudo tee /sys/bus/pci/devices/0000:01:00.0/remove" &
+exec "sleep 2" &
+exec "echo "1" | sudo tee /sys/bus/pci/rescan" &
+
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
 ksuperkey -e 'Super_R=Alt_L|F1' &
@@ -48,8 +53,6 @@ xsetroot -cursor_name left_ptr
 # Lauch compositor
 "$idir"/scripts/i3_comp
 
-
-exec sh -c 'sudo systemctl restart sddm' &
 
 exec sh -c 'pgrep -x spotify > /dev/null || exec spotify' &
 
