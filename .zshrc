@@ -131,6 +131,7 @@ alias analyza="python ~/dotfiles/scripts/snippets.py analyza"
 alias diskretka="python ~/dotfiles/scripts/snippets.py diskretka"
 
 alias prog="cd ~/mff/programovani/letnak/"
+alias othello="nvim ~/mff/programovani/letnak/projekt/"
 
 alias ukoly="nvim ~/mff/ukoly && cd ~/mff/ukoly/"
 
